@@ -1,0 +1,44 @@
+# Datos del dataset (no versionar; la licencia de R-KNav no permite redistribuir)
+data/
+datasets/
+*.parquet
+*.mcap
+*.bag
+*.rrd
+
+# Pesos y salidas de entrenamiento
+outputs/
+checkpoints/
+*.pt
+*.pth
+*.onnx
+*.safetensors
+
+# Secretos
+.env
+.env.*
+!.env.example
+accesos.local.md
+*.pem
+*.key
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# ROS / colcon
+log/
+install/
+build/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
