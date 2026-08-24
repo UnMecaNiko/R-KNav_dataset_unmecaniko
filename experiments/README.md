@@ -1,7 +1,7 @@
 # Experiments
 
-Código y notebooks de las pruebas. Cada experimento tiene carpeta propia y un `README.md` que enlaza la ficha de [knowledge/experiments/](../knowledge/experiments/).
+Code and notebooks for the experiments. Each experiment has its own folder and a `README.md` linking its design note in [knowledge/experiments/](../knowledge/experiments/).
 
-Hasta que arranque el primero, esta carpeta permanece vacía a propósito. El orden de trabajo está en [knowledge/experiments/roadmap.md](../knowledge/experiments/roadmap.md).
+Until the first one starts, this folder stays empty on purpose. The working order is in [knowledge/experiments/roadmap.md](../knowledge/experiments/roadmap.md).
 
-No guardar aquí copias del dataset. Descargar a `data/` (ignorada por git) o leer desde el Hub.
+Do not store dataset copies here. Download to `data/` (git-ignored) or read from the Hub.

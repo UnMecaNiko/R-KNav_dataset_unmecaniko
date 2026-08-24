@@ -1,13 +1,13 @@
-# Experimento: replay TurtleBot
+# Experiment: TurtleBot replay
 
-**Objetivo.** Publicar los `action` de un episodio como `/cmd_vel` a un TurtleBot en simulación (Gazebo) y verlo en RViz.
+**Goal.** Publish an episode's `action` values as `/cmd_vel` to a simulated TurtleBot (Gazebo) and watch it in RViz.
 
-**Expectativa honesta.** Misma *familia* de movimiento (diferencial), no el campus de R-Kiwi. Drift igual que en dead reckoning. Sirve para oficio ROS 2, no para validar Nav2.
+**Honest expectation.** The same *family* of motion (differential drive), not the R-Kiwi campus. Drift just like in dead reckoning. Useful for ROS 2 craft, not for validating Nav2.
 
-**No usar.** Los MP4 en este experimento. Nav2 tampoco (eso es el siguiente).
+**Do not use.** The MP4 files in this experiment. Nor Nav2 (that is the next one).
 
-**Herramientas.** ROS 2 Jazzy, sim del TurtleBot que se elija, RViz. Script que lea parquet/LeRobot y publique `geometry_msgs/Twist` a 10 Hz con los timestamps del episodio (o a fps fijo).
+**Tools.** ROS 2 Jazzy, the chosen TurtleBot sim, RViz. A script that reads parquet/LeRobot and publishes `geometry_msgs/Twist` at 10 Hz using the episode timestamps (or a fixed fps).
 
-**Salida.** `experiments/turtlebot-replay/` + captura o instrucciones de lanzado. Sin bags enormes en git.
+**Output.** `experiments/turtlebot-replay/` + a screenshot or launch instructions. No huge bags in git.
 
-**Estado.** Pendiente. Elegir TurtleBot 3 vs 4 al implementar.
+**Status.** Pending. Choose TurtleBot 3 vs 4 when implementing.

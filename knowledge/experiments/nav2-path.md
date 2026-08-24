@@ -1,11 +1,11 @@
-# Experimento: Nav2 sigue la ruta
+# Experiment: Nav2 follows the route
 
-**Objetivo.** Convertir el trazo (GPS o waypoints locales) en un `nav_msgs/Path` y que Nav2 lo siga en sim con TurtleBot.
+**Goal.** Turn the track (GPS or local waypoints) into a `nav_msgs/Path` and have Nav2 follow it in sim with a TurtleBot.
 
-**No es.** Meter las cámaras en Nav2. Nav2 navega con mapa/costmap/odom. El vídeo queda para el hilo LeRobot.
+**What it is not.** Feeding the cameras into Nav2. Nav2 navigates with map/costmap/odom. The video belongs to the LeRobot thread.
 
-**Dependencia.** Experimento de mapa (frame local, unidades). Algo de replay TurtleBot para tener sim lista.
+**Dependency.** The map experiment (local frame, units). Some TurtleBot replay work so the sim is ready.
 
-**Salida.** `experiments/nav2-path/` launch + nota de qué tan bien sigue la polilínea.
+**Output.** `experiments/nav2-path/` launch files + a note on how well it tracks the polyline.
 
-**Estado.** Pendiente; después de GPS + TurtleBot.
+**Status.** Pending; after GPS + TurtleBot.

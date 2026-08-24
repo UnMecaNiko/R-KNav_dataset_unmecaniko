@@ -1,16 +1,16 @@
-# Experimento: dead reckoning vs GPS
+# Experiment: dead reckoning vs GPS
 
-**Objetivo.** Integrar velocidades a pose 2D y ver el drift respecto al trazo GPS (o al waypoint, si no es WGS84: respecto al propio waypoint integrado vs comando).
+**Goal.** Integrate velocities into a 2D pose and see the drift against the GPS track (or against the waypoint, if it is not WGS84: integrated waypoint vs command).
 
-Hay dos twists:
+There are two twists:
 
-- `action` — comando
-- `observation.state` — odometría medida  
+- `action` — the command
+- `observation.state` — measured odometry  
 
-Integrar ambos a 10 fps (uniciclo: \(\dot x = v\cos\theta\), \(\dot y = v\sin\theta\), \(\dot\theta = \omega\)). Tres curvas: GPS/waypoints, odom integrada, comandos integrados.
+Integrate both at 10 fps (unicycle model: \(\dot x = v\cos\theta\), \(\dot y = v\sin\theta\), \(\dot\theta = \omega\)). Three curves: GPS/waypoints, integrated odom, integrated commands.
 
-**Por qué.** Explica tirones, resbalón, y qué tan fiel es el `action` al movimiento real. Es el puente conceptual al replay en TurtleBot (lazo abierto = la curva de comandos).
+**Why.** It explains the jerkiness, the slippage, and how faithful `action` is to the real motion. It is the conceptual bridge to the TurtleBot replay (open loop = the command curve).
 
-**Salida.** Script + figura (tres trazos). `experiments/dead-reckoning-vs-gps/`.
+**Output.** Script + figure (three tracks). `experiments/dead-reckoning-vs-gps/`.
 
-**Estado.** Pendiente de código.
+**Status.** Pending code.

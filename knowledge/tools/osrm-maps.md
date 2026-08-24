@@ -1,14 +1,14 @@
-# Mapas, OSM y OSRM
+# Maps, OSM and OSRM
 
-Robot.com **generó misiones** con OSRM (Open Source Routing Machine) sobre OSM con costes extra (tipo de vía, riesgo, señal). El dataset **no** incluye esa ruta planeada; solo el trazo recorrido (`observation.state.waypoints`).
+Robot.com **generated missions** with OSRM (Open Source Routing Machine) over OSM with extra costs (road type, risk, signal). The dataset does **not** include that planned route; only the traveled track (`observation.state.waypoints`).
 
-## Qué hacer en este lab
+## What to do in this lab
 
-1. Leer waypoints de todos los episodios del sample.
-2. **Validar unidades.** El ejemplo del README (`[1.48, -0.03]`) no parece longitud/latitud de un campus US (eso sería ~`-122, 37`). Hasta no ver el parquet: o es WGS84 y el ejemplo está mal, o es un frame local y OSM no aplica sin proyección.
-3. Si es WGS84: pintar en OpenStreetMap (Folium, Leaflet, geojson). Eso ya es el mapa de la flota del sample, **sin OSRM**.
-4. OSRM después: *map matching* (encajar el GPS al andén/calle) o comparar “ruta de red vs ruta hecha”. Software: [Project-OSRM](https://github.com/Project-OSRM/osrm-backend) o un servicio público de demo (no depender de él para producción).
+1. Read the waypoints of every episode in the sample.
+2. **Validate the units.** The README example (`[1.48, -0.03]`) does not look like longitude/latitude on a US campus (that would be around `-122, 37`). Until the parquet is inspected: either it is WGS84 and the example is wrong, or it is a local frame and OSM does not apply without a projection.
+3. If it is WGS84: plot it on OpenStreetMap (Folium, Leaflet, GeoJSON). That alone is the sample fleet's map, **without** OSRM.
+4. OSRM afterwards: *map matching* (snapping GPS to the sidewalk/street) or comparing "network route vs route actually driven". Software: [Project-OSRM](https://github.com/Project-OSRM/osrm-backend) or a public demo service (do not depend on it for production).
 
-OSRM no es un mapa: es un **motor de rutas** sobre un mapa OSM. El mapa se ve igual con tiles OSM solos.
+OSRM is not a map: it is a **routing engine** on top of an OSM map. The map looks the same with plain OSM tiles.
 
-Perfiles de elevación tipo Google Earth: descartados ([elevation.md](elevation.md)). Si más adelante hace falta cota: DEM abierto (SRTM / COP30).
+Google-Earth-style elevation profiles: discarded ([elevation.md](elevation.md)). If elevation is ever needed: an open DEM (SRTM / COP30).

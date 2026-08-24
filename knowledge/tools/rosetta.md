@@ -1,23 +1,23 @@
 # Rosetta
 
-Puente **ROS 2 ⇄ LeRobot**. Nombre: Piedra de Rosetta (dos idiomas). Repo: [iblnkn/rosetta](https://github.com/iblnkn/rosetta). Anuncio: [ROS Discourse](https://discourse.ros.org/t/announcing-rosetta-a-ros-2-lerobot-bridge/50657).
+A **ROS 2 ⇄ LeRobot** bridge. Name: the Rosetta Stone (two languages). Repo: [iblnkn/rosetta](https://github.com/iblnkn/rosetta). Announcement: [ROS Discourse](https://discourse.ros.org/t/announcing-rosetta-a-ros-2-lerobot-bridge/50657).
 
-ROS 2 habla topics anidados (`geometry_msgs/Twist` en `/cmd_vel`). LeRobot habla vectores planos (`action = [vx, wz]`) y mp4. Rosetta usa un **contract YAML**: este topic es esta feature, a este fps, con esta regla de alineación (`asof`, etc.).
+ROS 2 speaks nested topics (`geometry_msgs/Twist` on `/cmd_vel`). LeRobot speaks flat vectors (`action = [vx, wz]`) and mp4. Rosetta uses a **YAML contract**: this topic is this feature, at this fps, with this alignment rule (`asof`, etc.).
 
-Robot.com usó una versión **adaptada** para la ida: bag/MCAP → dataset. El `as-of-nearest` de la cámara frontal es esa regla, no magia del visualizador.
+Robot.com used an **adapted** version for the forward direction: bag/MCAP → dataset. The front camera's `as-of-nearest` rule comes from there, not from visualizer magic.
 
-El paquete original también puede:
+The original package can also:
 
-1. Grabar episodios a rosbag  
-2. Convertirlos a LeRobot con el mismo contract  
-3. Entrenar  
-4. **PolicyBridge:** el policy lee observaciones y publica `/cmd_vel`
+1. Record episodes to rosbag  
+2. Convert them to LeRobot with the same contract  
+3. Train  
+4. **PolicyBridge:** the policy reads observations and publishes `/cmd_vel`
 
-No es un modelo, ni RViz, ni un plugin de Nav2. Nav2 (o el humano) puede ser quien **produzca** el Twist que Rosetta empaqueta. Al desplegar un policy, el bridge **publica** Twist como haría Nav2.
+It is not a model, not RViz, and not a Nav2 plugin. Nav2 (or the human) can be what **produces** the Twist that Rosetta packages. When deploying a policy, the bridge **publishes** Twist the way Nav2 would.
 
-En este lab **no hace falta Rosetta al inicio**. Los datos ya están en LeRobot. Haría falta:
+In this lab **Rosetta is not needed at the start**. The data is already in LeRobot format. It would be needed:
 
-- para **publicar** un episodio otra vez como topics (si no escribimos un nodo mínimo nuestro), o  
-- el día que un policy entrenado tenga que hablar con TurtleBot/ROS 2.
+- to **republish** an episode as topics (unless a minimal node of our own is written), or  
+- the day a trained policy has to talk to TurtleBot/ROS 2.
 
-Replay simple de `action` → `/cmd_vel` en TurtleBot se puede hacer con un script Python/ROS 2 sin Rosetta.
+A simple `action` → `/cmd_vel` replay on a TurtleBot can be done with a Python/ROS 2 script without Rosetta.

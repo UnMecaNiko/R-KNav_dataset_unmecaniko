@@ -1,23 +1,23 @@
-# Licencia R-KNav
+# R-KNav license
 
-Texto: `LICENSE.md` / `LICENSE.pdf` en el repo del Hub. Lectura 2026-08-23. Si hay duda, abre el archivo en Hugging Face.
+Text: `LICENSE.md` / `LICENSE.pdf` in the Hub repo. Read on 2026-08-23. When in doubt, open the file on Hugging Face.
 
-## Qué es
+## What it is
 
-Licencia propia **R-KNav**, titular **Robot.com Holdings, Inc.** (Delaware). **Solo uso no comercial** (estudio, academia, investigación interna no productizada).
+A custom **R-KNav** license, holder **Robot.com Holdings, Inc.** (Delaware). **Non-commercial use only** (study, academia, internal non-productized research).
 
-Comercial, producto, o robot en producción → contrato aparte (`legal@robot.com`).
+Commercial use, a product, or a robot in production → separate contract (`legal@robot.com`).
 
-## Implica para este lab
+## What it implies for this lab
 
-Permitido: bajar el sample (y las 300 h si aprueban), analizar, entrenar de forma no comercial, escribir notas en *este* GitHub, publicar un modelo **con** atribución *Robot.com R-KNav Dataset* y la misma restricción no comercial en cadena.
+Allowed: downloading the sample (and the 300 h if approved), analyzing it, training non-commercially, writing notes in *this* GitHub repo, publishing a model **with** the *Robot.com R-KNav Dataset* attribution and the same non-commercial restriction passed down the chain.
 
-No permitido: subir el dataset ni trozos no *de minimis* a este repo; scrapear caras/placas; usar extractos que muestren fallos de sus robots; producto o demo comercial encima de estos datos.
+Not allowed: uploading the dataset or non-*de minimis* chunks of it to this repo; scraping faces/plates; using excerpts that show their robots failing; a commercial product or demo on top of this data.
 
-Extractos *de minimis* en un writeup: pocos frames, caras/placas ya borrosas o re-borradas, atribución, sin republicar el set.
+*De minimis* excerpts in a writeup: a few frames, faces/plates already blurred or re-blurred, attribution, no republishing of the set.
 
-Al terminar un agreement: pueden pedir borrar copias; conviene saber dónde está `data/` local.
+When an agreement ends: they may request deletion of copies; it helps to know where the local `data/` folder is.
 
-## Este repositorio
+## This repository
 
-Código y markdown propios: [LICENSE](../../LICENSE) (MIT). Eso **no** cubre R-KNav. El dato no viaja en git.
+Own code and markdown: [LICENSE](../../LICENSE) (MIT). That does **not** cover R-KNav. The data never travels in git.

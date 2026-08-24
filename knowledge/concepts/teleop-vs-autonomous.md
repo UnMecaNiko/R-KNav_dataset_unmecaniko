@@ -1,12 +1,12 @@
-# Teleoperación vs autonomía
+# Teleoperation vs autonomy
 
-Robot.com grabó **los dos modos** en entregas reales. El `action` de cada frame lo escribe quien tuviera el control:
+Robot.com recorded **both modes** during real deliveries. Each frame's `action` is written by whoever had control:
 
-- **Autónomo:** Nav2 custom + GPS/RTK + OSM.
-- **Remoto:** un operador manda el mismo `Twist`.
+- **Autonomous:** custom Nav2 + GPS/RTK + OSM.
+- **Remote:** an operator sending the same `Twist`.
 
-Las cámaras son siempre las del rover. Cambia el conductor.
+The cameras are always the rover's. What changes is the driver.
 
-El sample **no** trae flag `teleop` / `autonomous`. No se puede filtrar “solo autónomo” con el schema actual. Las `task` en inglés las pone un VLM después; no son lo que leía Nav2 ni el operador.
+The sample does **not** carry a `teleop` / `autonomous` flag. There is no way to filter "autonomous only" with the current schema. The English `task` strings are added by a VLM afterwards; they are not what Nav2 or the operator was reading.
 
-Mezclar estilos de comando también alimenta la métrica jerky.
+Mixing command styles also feeds the jerky metric.

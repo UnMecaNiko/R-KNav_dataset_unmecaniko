@@ -1,120 +1,120 @@
-# AGENTS.md — Contexto principal del repositorio
+# AGENTS.md — Main repository context
 
-> **Este es el archivo de contexto principal.** Todo agente (Claude Code, Copilot, Cursor, chatbot) y todo humano que trabaje aquí debe leerlo primero. `CLAUDE.md` y `.github/copilot-instructions.md` solo apuntan a él.
+> **This is the main context file.** Every agent (Claude Code, Copilot, Cursor, chatbot) and every human working here must read it first. `CLAUDE.md` and `.github/copilot-instructions.md` only point to it.
 
-## Qué es este repositorio
+## What this repository is
 
-Lab de trabajo de **Nicolas Velasquez Lopez (`unmecaniko`)** sobre el dataset **[R-KNav](https://huggingface.co/datasets/robotcom/R-KNav_dataset)** de [Robot.com](https://www.robot.com/) (antes Kiwibot): datos reales de navegación en acera de la flota R-Kiwi, publicados en formato LeRobot.
+Working lab of **Nicolas Velasquez Lopez (`unmecaniko`)** on the **[R-KNav](https://huggingface.co/datasets/robotcom/R-KNav_dataset)** dataset from [Robot.com](https://www.robot.com/) (formerly Kiwibot): real sidewalk navigation data from the R-Kiwi fleet, published in LeRobot format.
 
-El objetivo no es republicar el dataset. Es **estudiarlo, analizarlo y construir pruebas** (mapas, odometría, replay en TurtleBot, Nav2, más adelante políticas de visión) para aprender herramientas de robótica y Physical AI, con artefactos públicos que cierren brechas del perfil.
+The goal is not to republish the dataset. It is to **study it, analyze it and build experiments** (maps, odometry, TurtleBot replay, Nav2, later on vision policies) in order to learn robotics and Physical AI tooling, with public artifacts that close gaps in the profile.
 
-Identidad, trayectoria y reglas globales de Nicolas viven en el repositorio principal:
+Nicolas's identity, career history and global rules live in the main repository:
 
-**[github.com/UnMecaNiko/unmecaniko-projects](https://github.com/UnMecaNiko/unmecaniko-projects)** — empezar por su [`AGENTS.md`](https://github.com/UnMecaNiko/unmecaniko-projects/blob/main/AGENTS.md).
+**[github.com/UnMecaNiko/unmecaniko-projects](https://github.com/UnMecaNiko/unmecaniko-projects)** — start with its [`AGENTS.md`](https://github.com/UnMecaNiko/unmecaniko-projects/blob/main/AGENTS.md).
 
-Este repo **no sustituye** esa base. Aquí solo está el contexto del lab R-KNav. Perfil corto: [context/about-unmecaniko.md](context/about-unmecaniko.md). Enlaces: [context/related-repositories.md](context/related-repositories.md).
+This repo does **not** replace that base. Only the R-KNav lab context lives here. Short profile: [context/about-unmecaniko.md](context/about-unmecaniko.md). Links: [context/related-repositories.md](context/related-repositories.md).
 
-## Arquitectura
+## Architecture
 
-Una sola capa de trabajo (español). No alimenta unmecaniko.com.
+A single working layer (English). It does not feed unmecaniko.com.
 
-| Carpeta | Qué es |
+| Folder | What it is |
 |---|---|
-| `context/` | Quién es Nicolas (resumen), repos relacionados, propósito de este lab. |
-| `knowledge/` | Fuente de la verdad de *este* proyecto: dataset, conceptos, herramientas, diseño de experimentos. |
-| `experiments/` | Código y notebooks de las pruebas. Cada una enlaza su ficha en `knowledge/experiments/`. |
-| `planning/` | Changelog y pendientes de **este** repositorio. |
-| `data/` | Descargas locales del dataset. **Ignorada por git.** No commitear. |
+| `context/` | Who Nicolas is (summary), related repos, purpose of this lab. |
+| `knowledge/` | Source of truth for *this* project: dataset, concepts, tools, experiment design. |
+| `experiments/` | Code and notebooks for the experiments. Each one links its design note in `knowledge/experiments/`. |
+| `planning/` | Changelog and open items for **this** repository. |
+| `data/` | Local dataset downloads. **Git-ignored.** Do not commit. |
 
-- **Contenido en español.** Lengua de trabajo de Nicolas.
-- **Nombres de carpeta y archivo en inglés.**
-- El dataset original permanece en Hugging Face. Aquí van notas, scripts y resultados ligeros (tablas, gráficos chicos).
+- **Content in English.** Working language of this repository.
+- **Folder and file names in English.**
+- The original dataset stays on Hugging Face. Only notes, scripts and lightweight results (tables, small plots) go here.
 
-## Reglas para agentes
+## Rules for agents
 
-### 1. Cero secretos y cero redistribución del dataset
+### 1. No secrets and no dataset redistribution
 
-El repositorio puede ser público. Cualquier archivo aquí se trata como publicado.
+The repository may be public. Any file here is treated as published.
 
-- No commitear tokens, `.env` reales, ni pesos de modelos grandes.
-- **No commitear** parquet, mp4, mcap ni copias de R-KNav. La [licencia](https://huggingface.co/datasets/robotcom/R-KNav_dataset) es no comercial y **prohíbe redistribuir** el dataset. Referenciar `robotcom/R-KNav_sample` y `robotcom/R-KNav_dataset`.
-- Código propio: se puede publicar. Modelos entrenados con R-KNav, si se publican, heredan la restricción no comercial y la atribución *Robot.com R-KNav Dataset*.
+- Do not commit tokens, real `.env` files, or large model weights.
+- **Do not commit** parquet, mp4, mcap, or any copy of R-KNav. The [license](https://huggingface.co/datasets/robotcom/R-KNav_dataset) is non-commercial and **forbids redistributing** the dataset. Reference `robotcom/R-KNav_sample` and `robotcom/R-KNav_dataset` instead.
+- Own code: publishable. Models trained on R-KNav, if published, inherit the non-commercial restriction and the *Robot.com R-KNav Dataset* attribution.
 
-### 2. Idioma y formato
+### 2. Language and format
 
-- Narrativa → Markdown. Inventarios y parámetros → YAML.
-- Lo desconocido: `> ⏳ PENDIENTE: <qué falta y cómo obtenerlo>`. Nunca inventar cifras del dataset ni de Robot.com.
+- Narrative → Markdown. Inventories and parameters → YAML.
+- Unknowns: `> ⏳ TODO: <what is missing and how to get it>`. Never invent numbers about the dataset or about Robot.com.
 
-### 3. Referenciar GitHub y Hugging Face, nunca rutas locales
+### 3. Reference GitHub and Hugging Face, never local paths
 
-Prohibido escribir `C:\Users\...` como forma de localizar conocimiento. Dataset: URL del Hub. Identidad: `unmecaniko-projects`. Excepción: documentar dónde vive un secreto que no puede estar en git.
+Writing `C:\Users\...` as a way to locate knowledge is forbidden. Dataset: Hub URL. Identity: `unmecaniko-projects`. Exception: documenting where a secret lives when it cannot be in git.
 
-### 4. Tres capas que no se mezclan
+### 4. Three layers that do not mix
 
 ```
 Robot / sim          ROS 2, Nav2, RViz, /cmd_vel
-Grabación            rosbag → Rosetta → LeRobot (parquet + mp4)
-Aprendizaje          LeRobot / PyTorch  (videos → policy)
+Recording            rosbag → Rosetta → LeRobot (parquet + mp4)
+Learning             LeRobot / PyTorch  (video → policy)
 ```
 
-- **Nav2** escribe `/cmd_vel` en el stack clásico. No come MP4.
-- **Rosetta** traduce ROS 2 ↔ LeRobot. No es un plugin de Nav2.
-- **LeRobot Dataset Visualizer** inspecciona el Hub. No entrenar ahí.
-- **Entrenar con video** es otro hilo (`lerobot`). No bloquea mapas ni TurtleBot.
-- **Isaac Sim/Lab** sí es familia NVIDIA útil (mismo formato / acción `twist`). **Alpamayo** (VLA de auto) no es el primer experimento: otro vehículo, otros sensores.
+- **Nav2** writes `/cmd_vel` in the classic stack. It does not eat MP4.
+- **Rosetta** translates ROS 2 ↔ LeRobot. It is not a Nav2 plugin.
+- **LeRobot Dataset Visualizer** inspects the Hub. Do not train there.
+- **Training on video** is a separate thread (`lerobot`). It does not block maps or TurtleBot.
+- **Isaac Sim/Lab** is the useful NVIDIA family (same format / `twist` action). **Alpamayo** (a car VLA) is not the first experiment: different vehicle, different sensors.
 
-Detalle: [knowledge/concepts/layers.md](knowledge/concepts/layers.md).
+Detail: [knowledge/concepts/layers.md](knowledge/concepts/layers.md).
 
-### 5. Datos técnicos: validar y citar
+### 5. Technical facts: validate and cite
 
-Ante duda de formato LeRobot, Nav2, OSRM o el dataset: buscar fuente oficial, citar URL y fecha. El README de Hugging Face manda sobre recuerdos de conversaciones.
+When in doubt about the LeRobot format, Nav2, OSRM or the dataset: find the official source, cite the URL and the date. The Hugging Face README overrides memories of past conversations.
 
-### 6. Planeación viva
+### 6. Living planning
 
-Al terminar trabajo: [planning/changelog.md](planning/changelog.md) y [planning/pendientes.md](planning/pendientes.md). Un pendiente resuelto se borra de pendientes y queda en el changelog.
+When finishing a piece of work, update [planning/changelog.md](planning/changelog.md) and [planning/todo.md](planning/todo.md). A resolved item is deleted from the todo list and recorded in the changelog.
 
-### 7. Flujo de git
+### 7. Git workflow
 
-- Commits automáticos, sin pedir autorización, sobre `main` o una rama.
-- `git pull` al iniciar sesión.
-- `git push` a `origin` automático tras cada commit.
-- `main` por defecto. Rama `tipo/proposito` solo si hay que aislar.
-- Merge a `main` requiere autorización explícita; luego fast-forward, sin PR, borrar la rama remota.
-- Identidad de commits: `Nicolas Velasquez Lopez <unmecaniko@gmail.com>`.
+- Automatic commits, no authorization needed, on `main` or a branch.
+- `git pull` when starting a session.
+- Automatic `git push` to `origin` after every commit.
+- `main` by default. A `type/purpose` branch only when isolation is required.
+- Merging to `main` requires explicit authorization; then fast-forward, no PR, delete the remote branch.
+- Commit identity: `Nicolas Velasquez Lopez <unmecaniko@gmail.com>`.
 
-## Mapa del repositorio
+## Repository map
 
 ```
-AGENTS.md                 ← estás aquí
-CLAUDE.md                 solo referencia a AGENTS.md
-README.md                 índice para humanos
-context/                  quién, para qué, repos relacionados
+AGENTS.md                 ← you are here
+CLAUDE.md                 only references AGENTS.md
+README.md                 index for humans
+context/                  who, what for, related repos
 knowledge/
-  dataset/                qué es R-KNav, acceso, schema, licencia, pipeline
-  concepts/               capas, VLM/VLA, jerky, teleop vs autónomo
-  tools/                  visualizador, Rosetta, ROS 2/RViz, OSRM, NVIDIA
-  experiments/            diseño de cada prueba (aún sin código)
-experiments/              código cuando exista
-planning/                 changelog.md, pendientes.md
-data/                     local, gitignored
+  dataset/                what R-KNav is, access, schema, license, pipeline
+  concepts/               layers, VLM/VLA, jerky, teleop vs autonomous
+  tools/                  visualizer, Rosetta, ROS 2/RViz, OSRM, NVIDIA
+  experiments/            design of each experiment (no code yet)
+experiments/              code once it exists
+planning/                 changelog.md, todo.md
+data/                     local, git-ignored
 ```
 
-## Lectura mínima para un agente nuevo
+## Minimum reading for a new agent
 
-1. Este archivo.
+1. This file.
 2. [context/repository-purpose.md](context/repository-purpose.md)
 3. [knowledge/dataset/overview.md](knowledge/dataset/overview.md)
 4. [knowledge/experiments/roadmap.md](knowledge/experiments/roadmap.md)
-5. Si hace falta identidad o carrera: [unmecaniko-projects](https://github.com/UnMecaNiko/unmecaniko-projects)
+5. If identity or career context is needed: [unmecaniko-projects](https://github.com/UnMecaNiko/unmecaniko-projects)
 
-## Flujos frecuentes
+## Common flows
 
-| Quiero… | Entonces… |
+| I want to… | Then… |
 |---|---|
-| Entender el dataset | [knowledge/dataset/overview.md](knowledge/dataset/overview.md) |
-| Descargar o pedir acceso | [knowledge/dataset/access.md](knowledge/dataset/access.md) |
-| Ver el sample en el visualizador | [knowledge/tools/lerobot-visualizer.md](knowledge/tools/lerobot-visualizer.md) |
-| Saber qué experimento toca | [knowledge/experiments/roadmap.md](knowledge/experiments/roadmap.md) |
-| ROS 2 / RViz / Nav2 | [knowledge/tools/ros2-rviz.md](knowledge/tools/ros2-rviz.md) — tutoriales oficiales, no reescribirlos |
-| Quién es Nicolas | [context/about-unmecaniko.md](context/about-unmecaniko.md) y el repo principal |
-| Qué cambió aquí | [planning/changelog.md](planning/changelog.md) |
+| Understand the dataset | [knowledge/dataset/overview.md](knowledge/dataset/overview.md) |
+| Download it or request access | [knowledge/dataset/access.md](knowledge/dataset/access.md) |
+| See the sample in the visualizer | [knowledge/tools/lerobot-visualizer.md](knowledge/tools/lerobot-visualizer.md) |
+| Know which experiment is next | [knowledge/experiments/roadmap.md](knowledge/experiments/roadmap.md) |
+| ROS 2 / RViz / Nav2 | [knowledge/tools/ros2-rviz.md](knowledge/tools/ros2-rviz.md) — official tutorials, do not rewrite them |
+| Know who Nicolas is | [context/about-unmecaniko.md](context/about-unmecaniko.md) and the main repo |
+| See what changed here | [planning/changelog.md](planning/changelog.md) |

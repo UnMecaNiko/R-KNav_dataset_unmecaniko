@@ -1,11 +1,11 @@
-# Experimento: policy sobre vídeo (más adelante)
+# Experiment: policy over video (later)
 
-**Objetivo.** Entrenar un policy pequeño (ACT / Diffusion / SmolVLA en LeRobot) que, dadas cámaras (+ estado), prediga `action`.
+**Goal.** Train a small policy (ACT / Diffusion / SmolVLA in LeRobot) that, given the cameras (+ state), predicts `action`.
 
-**Realidad.** El sample (~30 min, 14 episodios) sirve para **cerrar el loop de código** (dataset → train → checkpoint). Overfit esperado. Un modelo que merezca FoMo o las 300 h gated es otra fase.
+**Reality check.** The sample (~30 min, 14 episodes) is enough to **close the code loop** (dataset → train → checkpoint). Overfitting is expected. A model worthy of FoMo or of the gated 300 h is a different phase.
 
-**No empieza ahora.** No bloquea mapas ni TurtleBot. Rosetta no hace falta hasta que el checkpoint deba publicarse en `/cmd_vel` de un robot ROS 2.
+**Not starting now.** It does not block maps or TurtleBot. Rosetta is not needed until the checkpoint has to publish to a ROS 2 robot's `/cmd_vel`.
 
-**Salida futura.** `experiments/lerobot-policy/` + tarjeta de modelo en el Hub con licencia no comercial y atribución R-KNav.
+**Future output.** `experiments/lerobot-policy/` + a model card on the Hub with the non-commercial license and R-KNav attribution.
 
-**Estado.** Aparcado.
+**Status.** Parked.

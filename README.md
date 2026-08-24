@@ -4,38 +4,38 @@ Working lab of [Nicolas Velasquez Lopez](https://www.unmecaniko.com) (`unmecanik
 
 This repository holds **notes, experiment design and later code**. It does **not** host a copy of the dataset. R-KNav is licensed for non-commercial use and must not be redistributed; see [knowledge/dataset/license.md](knowledge/dataset/license.md).
 
-Human index below is in Spanish (working language). Agent rules: [`AGENTS.md`](AGENTS.md).
+Agent rules: [`AGENTS.md`](AGENTS.md).
 
 ---
 
-## Para qué existe
+## Why it exists
 
-Estudiar un dataset de flota real y **aprender herramientas** encima: mapas (OSM/OSRM), odometría vs GPS, replay en TurtleBot (ROS 2 + RViz), Nav2, y más adelante políticas que usen las cámaras (LeRobot). Encaja con la transición de Nicolas hacia robótica + Physical AI. El contexto de identidad no se duplica: vive en [unmecaniko-projects](https://github.com/UnMecaNiko/unmecaniko-projects).
+To study a real fleet dataset and **learn tooling** on top of it: maps (OSM/OSRM), odometry vs GPS, TurtleBot replay (ROS 2 + RViz), Nav2, and later policies that use the cameras (LeRobot). It fits Nicolas's transition toward robotics + Physical AI. Identity context is not duplicated here: it lives in [unmecaniko-projects](https://github.com/UnMecaNiko/unmecaniko-projects).
 
-## Mapa
+## Map
 
-| Dónde | Qué |
+| Where | What |
 |---|---|
-| [AGENTS.md](AGENTS.md) | Reglas para agentes |
-| [context/](context/) | Quién, propósito, repos relacionados |
-| [knowledge/dataset/](knowledge/dataset/) | Qué es R-KNav |
-| [knowledge/experiments/roadmap.md](knowledge/experiments/roadmap.md) | Orden de las pruebas |
-| [experiments/](experiments/) | Código (vacío hasta el primer experimento) |
-| [planning/pendientes.md](planning/pendientes.md) | Backlog de este lab |
+| [AGENTS.md](AGENTS.md) | Rules for agents |
+| [context/](context/) | Who, purpose, related repos |
+| [knowledge/dataset/](knowledge/dataset/) | What R-KNav is |
+| [knowledge/experiments/roadmap.md](knowledge/experiments/roadmap.md) | Order of the experiments |
+| [experiments/](experiments/) | Code (empty until the first experiment) |
+| [planning/todo.md](planning/todo.md) | Backlog of this lab |
 
-## Dataset (externo)
+## Dataset (external)
 
-| Recurso | URL |
+| Resource | URL |
 |---|---|
-| Sample ~30 min (abierto) | [robotcom/R-KNav_sample](https://huggingface.co/datasets/robotcom/R-KNav_sample) |
+| ~30 min sample (open) | [robotcom/R-KNav_sample](https://huggingface.co/datasets/robotcom/R-KNav_sample) |
 | 300 h (gated) | [robotcom/R-KNav_dataset](https://huggingface.co/datasets/robotcom/R-KNav_dataset) |
-| Visualizador | [lerobot/visualize_dataset](https://huggingface.co/spaces/lerobot/visualize_dataset) |
-| 10 000 h | Pedir a Autonomy: `airobotics@kiwicampus.com` |
+| Visualizer | [lerobot/visualize_dataset](https://huggingface.co/spaces/lerobot/visualize_dataset) |
+| 10,000 h | Request from Autonomy: `airobotics@kiwicampus.com` |
 
-## Estado
+## Status
 
-Arranque 2026-08-23: contexto volcado desde la sesión de exploración. Aún no hay código. Primeros experimentos previstos: mapa GPS, dead reckoning vs GPS, replay de `cmd_vel` en TurtleBot.
+Kickoff 2026-08-23: context dumped from the exploration session. No code yet. First planned experiments: GPS map, dead reckoning vs GPS, `cmd_vel` replay on a TurtleBot.
 
-## Licencia de *este* repo
+## License of *this* repo
 
-Notas y código propio: ver [LICENSE](LICENSE). El dataset R-KNav sigue siendo de Robot.com Holdings, Inc.; no se incluye aquí.
+Own notes and code: see [LICENSE](LICENSE). The R-KNav dataset still belongs to Robot.com Holdings, Inc.; it is not included here.

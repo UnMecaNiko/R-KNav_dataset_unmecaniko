@@ -1,9 +1,9 @@
 # Dataset
 
-| Archivo | Qué |
+| File | What |
 |---|---|
-| [overview.md](overview.md) | Qué es R-KNav, tiers, FoMo |
-| [access.md](access.md) | Sample, gate 300 h, 10k h |
-| [schema.md](schema.md) | Features LeRobot v3 del sample |
-| [license.md](license.md) | Licencia no comercial y qué implica |
-| [pipeline.md](pipeline.md) | De la flota al Hub |
+| [overview.md](overview.md) | What R-KNav is, tiers, FoMo |
+| [access.md](access.md) | Sample, 300 h gate, 10k h |
+| [schema.md](schema.md) | LeRobot v3 features of the sample |
+| [license.md](license.md) | Non-commercial license and what it implies |
+| [pipeline.md](pipeline.md) | From the fleet to the Hub |

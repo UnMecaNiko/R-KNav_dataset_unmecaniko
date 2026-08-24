@@ -1,11 +1,11 @@
-# Experimento: mapa GPS (± OSRM)
+# Experiment: GPS map (± OSRM)
 
-**Objetivo.** Pintar las trayectorias de todos los episodios del sample sobre un mapa y, si los puntos son WGS84, opcionalmente hacer map matching con OSRM.
+**Goal.** Plot the trajectories of every episode in the sample on a map and, if the points are WGS84, optionally do map matching with OSRM.
 
-**Dependencia.** Confirmar qué son `observation.state.waypoints` ([schema](../dataset/schema.md), [osrm-maps](../tools/osrm-maps.md)).
+**Dependency.** Confirm what `observation.state.waypoints` actually is ([schema](../dataset/schema.md), [osrm-maps](../tools/osrm-maps.md)).
 
-**No es.** Un routing engine para el TurtleBot. Solo análisis espacial.
+**What it is not.** A routing engine for the TurtleBot. Spatial analysis only.
 
-**Salida esperada.** GeoJSON o HTML Folium en `experiments/gps-map/` (el HTML ligero sí puede ir a git; no los mp4). Nota de si OSRM aportó algo o si con OSM basta.
+**Expected output.** GeoJSON or a Folium HTML in `experiments/gps-map/` (the lightweight HTML may go into git; the mp4 files may not). A note on whether OSRM added anything or plain OSM was enough.
 
-**Estado.** Pendiente de código.
+**Status.** Pending code.

@@ -1,29 +1,29 @@
-# Propósito de este repositorio
+# Purpose of this repository
 
-**Nombre:** `R-KNav_dataset_unmecaniko`  
-**Dueño:** [UnMecaNiko](https://github.com/UnMecaNiko)  
-**Nacimiento:** 2026-08-23, a partir de una sesión de exploración del dataset y de las herramientas alrededor.
+**Name:** `R-KNav_dataset_unmecaniko`  
+**Owner:** [UnMecaNiko](https://github.com/UnMecaNiko)  
+**Born:** 2026-08-23, out of an exploration session on the dataset and the tools around it.
 
-## Qué sí
+## What it is
 
-Un **laboratorio versionado** para:
+A **versioned laboratory** for:
 
-1. Conservar el contexto del dataset (qué es, cómo se accede, qué hay en cada campo, licencia).
-2. Diseñar y luego ejecutar pruebas de análisis y robótica encima de esos datos.
-3. Dejar artefactos (notas, scripts, más adelante un replay o un mapa) que demuestren ROS 2 y datos de flota reales, sin fingir un paper de fundación de modelos.
+1. Preserving the dataset context (what it is, how to access it, what each field holds, license).
+2. Designing and then running analysis and robotics experiments on top of that data.
+3. Leaving artifacts (notes, scripts, later a replay or a map) that demonstrate ROS 2 and real fleet data, without faking a foundation-model paper.
 
-Las pruebas previstas, en orden, están en [../knowledge/experiments/roadmap.md](../knowledge/experiments/roadmap.md). En corto: mapa GPS ± OSRM → odometría vs GPS → TurtleBot en sim con los `twist` → Nav2 siguiendo la ruta (no el video) → mucho más tarde un policy sobre cámaras.
+The planned experiments, in order, are in [../knowledge/experiments/roadmap.md](../knowledge/experiments/roadmap.md). In short: GPS map ± OSRM → odometry vs GPS → TurtleBot in sim with the `twist` commands → Nav2 following the route (not the video) → much later a policy over the cameras.
 
-## Qué no
+## What it is not
 
-- No es un fork ni un espejo de Hugging Face. El dato se queda en el Hub.
-- No es el portafolio web. Si algún día hay un proyecto publicable, se ficha en `projects/` de [unmecaniko-projects](https://github.com/UnMecaNiko/unmecaniko-projects) con plantilla en inglés.
-- No es una postulación a Robot.com. El lab puede informar conversaciones; las vacantes viven en `planning/career/` del repo principal.
-- No es un sitio para entrenar un VLA de 300 h el primer día. El sample son ~14 episodios / ~30 min; sirve para el loop, no para un modelo serio.
-- No mezcla Google Earth / Elevation API (descartado: no es abierto para un pipeline; ver [../knowledge/tools/elevation.md](../knowledge/tools/elevation.md)).
+- Not a fork or a mirror of Hugging Face. The data stays on the Hub.
+- Not the portfolio website. If a publishable project ever comes out of it, it gets a card in `projects/` of [unmecaniko-projects](https://github.com/UnMecaNiko/unmecaniko-projects) using the English template.
+- Not a job application to Robot.com. The lab can inform conversations; job postings live in `planning/career/` of the main repo.
+- Not a place to train a 300 h VLA on day one. The sample is ~14 episodes / ~30 min; good for the loop, not for a serious model.
+- It does not mix in Google Earth / Elevation API (discarded: not open enough for a pipeline; see [../knowledge/tools/elevation.md](../knowledge/tools/elevation.md)).
 
-## Origen del alcance
+## Origin of the scope
 
-La sesión de 2026-08-23 cerró así, en palabras de Nicolas: analizar el dataset de varias formas; pintar GPS con mapas y OSRM; integrar \(v,\omega\) y compararlo con GPS; meter esos comandos en un TurtleBot simulado; aprender Nav2 **sin** forzar las imágenes ahí; dejar video → modelo y Rosetta para cuando toque esa capa.
+The 2026-08-23 session closed like this, in Nicolas's words: analyze the dataset in several ways; plot GPS with maps and OSRM; integrate \(v,\omega\) and compare it against GPS; feed those commands into a simulated TurtleBot; learn Nav2 **without** forcing the images into it; leave video → model and Rosetta for when that layer comes.
 
-Eso es el backlog. Se ejecuta por el roadmap, no todo a la vez.
+That is the backlog. It is executed following the roadmap, not all at once.

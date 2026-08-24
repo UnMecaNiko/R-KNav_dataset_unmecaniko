@@ -1,11 +1,11 @@
-# NVIDIA (Isaac sí, Alpamayo no como primer paso)
+# NVIDIA (Isaac yes, Alpamayo not as a first step)
 
-R-KNav es un **rover de acera**, 10 fps, 4 cámaras chicas, sin LiDAR, acción `Twist`.
+R-KNav is a **sidewalk rover**, 10 fps, four small cameras, no LiDAR, `Twist` actions.
 
-**Isaac Sim / Isaac Lab / Cosmos** son la familia NVIDIA que encaja *de lejos*: simulación de un diferencial, mismo tipo de acción, LeRobot se está integrando con Isaac Lab Arena. Arena hoy está muy orientada a humanoides; un rover hay que armarlo. Cosmos puede retexturizar vídeo de sim. **No** se “meten” los MP4 de R-KNav dentro de Isaac como si fueran la escena. El cruce útil es: mismo formato LeRobot + comparar histogramas de acción real vs sim.
+**Isaac Sim / Isaac Lab / Cosmos** are the NVIDIA family that fits *at a distance*: simulating a differential-drive robot, same action type, and LeRobot is being integrated with Isaac Lab Arena. Arena today is heavily humanoid-oriented; a rover has to be assembled. Cosmos can retexture sim video. R-KNav's MP4 files are **not** "loaded into" Isaac as if they were the scene. The useful overlap is: same LeRobot format + comparing real vs sim action histograms.
 
-**Alpamayo / AlpaSim / DRIVE** son VLA de **auto** (trayectoria de vehículo, LiDAR, calles). Otro dominio. Un paper de domain gap, no el primer laboratorio.
+**Alpamayo / AlpaSim / DRIVE** are **car** VLAs (vehicle trajectory, LiDAR, streets). A different domain. A domain-gap paper, not the first lab.
 
-Hardware: Isaac y Cosmos quieren GPU NVIDIA de verdad. Sin ella, el techo es el sample + ROS 2 en WSL/Gazebo.
+Hardware: Isaac and Cosmos want a real NVIDIA GPU. Without one, the ceiling is the sample + ROS 2 on WSL/Gazebo.
 
-En el roadmap, NVIDIA queda **después** de GPS, odom y TurtleBot, salvo que Nicolas decida subir Isaac como experimento explícito.
+In the roadmap, NVIDIA comes **after** GPS, odom and TurtleBot, unless Nicolas decides to promote Isaac to an explicit experiment.

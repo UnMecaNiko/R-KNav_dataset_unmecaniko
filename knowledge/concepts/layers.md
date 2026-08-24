@@ -1,39 +1,39 @@
-# Tres capas (no mezclar herramientas)
+# Three layers (do not mix the tools)
 
-La confusión habitual: tratar Rosetta, Nav2, el visualizador y el entrenamiento como un solo tubo. No lo son.
+The usual confusion: treating Rosetta, Nav2, the visualizer and training as one single pipe. They are not.
 
 ```
 ┌─────────────────────────────────────────────────────────┐
 │  ROBOT / SIM                                            │
 │  ROS 2 topics: /camera, /odom, /cmd_vel, GPS            │
-│  Nav2  = un posible escritor de /cmd_vel                │
-│  RViz  = ventana sobre esos topics                      │
-│  TurtleBot en Gazebo = otro cuerpo, mismos tipos Twist  │
+│  Nav2  = one possible writer of /cmd_vel                │
+│  RViz  = a window onto those topics                     │
+│  TurtleBot in Gazebo = another body, same Twist types   │
 └───────────────────────────┬─────────────────────────────┘
                             │ rosbag / MCAP
                             ▼
 ┌─────────────────────────────────────────────────────────┐
-│  ROSETTA  (traductor)                                   │
-│  YAML contract: topic ROS 2  ↔  feature LeRobot         │
-│  Ida:  bag → parquet + mp4                              │
-│  Vuelta (opcional): policy → /cmd_vel                   │
-│  No “se enchufa a Nav2”. Nav2 es una fuente de Twist.   │
+│  ROSETTA  (translator)                                  │
+│  YAML contract: ROS 2 topic  ↔  LeRobot feature         │
+│  Forward:  bag → parquet + mp4                          │
+│  Back (optional): policy → /cmd_vel                     │
+│  It does not "plug into Nav2". Nav2 is a Twist source.  │
 └───────────────────────────┬─────────────────────────────┘
                             ▼
 ┌─────────────────────────────────────────────────────────┐
 │  LEROBOT DATASET                                        │
 │  observation.image.*  observation.state  action  task   │
-│  Visualizer HF = inspección (incluye métrica “jerky”)   │
+│  HF Visualizer = inspection (includes the "jerky" tag)  │
 └───────────────────────────┬─────────────────────────────┘
-                            │  solo si se entrena
+                            │  only if training happens
                             ▼
 ┌─────────────────────────────────────────────────────────┐
 │  POLICY (ACT, SmolVLA, …)                               │
-│  entra vídeo + estado (+ texto) → sale Twist            │
-│  Eso sustituye a Nav2 en el volante, no se mete dentro. │
+│  in: video + state (+ text) → out: Twist                │
+│  It replaces Nav2 at the wheel, it does not go inside.  │
 └─────────────────────────────────────────────────────────┘
 ```
 
-**Nav2 + imágenes:** Nav2 clásico usa mapa, odom, a menudo laser/costmap. No consume los MP4 de R-KNav. Visión+Nav2 es otro stack. En este lab, Nav2 entra **siguiendo una ruta** (GPS pasado a un frame local), no el vídeo.
+**Nav2 + images:** classic Nav2 uses a map, odom, often laser/costmap. It does not consume R-KNav's MP4 files. Vision + Nav2 is a different stack. In this lab, Nav2 comes in **following a route** (GPS mapped into a local frame), not the video.
 
-**Vídeo → modelo:** hilo LeRobot, más tarde. No bloquea GPS, odom ni TurtleBot.
+**Video → model:** the LeRobot thread, later. It does not block GPS, odom or TurtleBot.

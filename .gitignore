@@ -1,4 +1,4 @@
-# Datos del dataset (no versionar; la licencia de R-KNav no permite redistribuir)
+# Dataset data (do not version; the R-KNav license forbids redistribution)
 data/
 datasets/
 *.parquet
@@ -6,7 +6,7 @@ datasets/
 *.bag
 *.rrd
 
-# Pesos y salidas de entrenamiento
+# Weights and training outputs
 outputs/
 checkpoints/
 *.pt
@@ -14,11 +14,11 @@ checkpoints/
 *.onnx
 *.safetensors
 
-# Secretos
+# Secrets
 .env
 .env.*
 !.env.example
-accesos.local.md
+secrets.local.md
 *.pem
 *.key
 

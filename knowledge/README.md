@@ -1,12 +1,12 @@
 # Knowledge
 
-Fuente de la verdad de **este** lab. Si un script y una nota chocan, gana lo escrito aquí hasta que el experimento demuestre lo contrario.
+Source of truth for **this** lab. If a script and a note disagree, what is written here wins until an experiment proves otherwise.
 
-| Carpeta | Contenido |
+| Folder | Content |
 |---|---|
-| [dataset/](dataset/) | Qué es R-KNav, acceso, schema, licencia, pipeline |
-| [concepts/](concepts/) | Capas ROS/LeRobot, VLM/VLA, jerky, teleop |
-| [tools/](tools/) | Visualizador, Rosetta, ROS 2, OSRM, NVIDIA, elevación (descartada) |
-| [experiments/](experiments/) | Diseño y roadmap; el código vive en `/experiments/` |
+| [dataset/](dataset/) | What R-KNav is, access, schema, license, pipeline |
+| [concepts/](concepts/) | ROS/LeRobot layers, VLM/VLA, jerky, teleop |
+| [tools/](tools/) | Visualizer, Rosetta, ROS 2, OSRM, NVIDIA, elevation (discarded) |
+| [experiments/](experiments/) | Design and roadmap; the code lives in `/experiments/` |
 
-Empieza por [dataset/overview.md](dataset/overview.md) y [experiments/roadmap.md](experiments/roadmap.md).
+Start with [dataset/overview.md](dataset/overview.md) and [experiments/roadmap.md](experiments/roadmap.md).

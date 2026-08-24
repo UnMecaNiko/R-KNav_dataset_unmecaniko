@@ -1,9 +1,9 @@
 # Context
 
-Contexto estable de **quién trabaja aquí** y **para qué existe este repositorio**. No es la ficha del dataset (eso vive en `knowledge/dataset/`) ni el plan de experimentos (`knowledge/experiments/`).
+Stable context on **who works here** and **why this repository exists**. It is not the dataset note (that lives in `knowledge/dataset/`) nor the experiment plan (`knowledge/experiments/`).
 
-| Archivo | Qué responde |
+| File | What it answers |
 |---|---|
-| [about-unmecaniko.md](about-unmecaniko.md) | Quién es Nicolas, en una página. El detalle está en el repo principal. |
-| [related-repositories.md](related-repositories.md) | Dónde está el resto del conocimiento y el dataset original. |
-| [repository-purpose.md](repository-purpose.md) | Objetivo de este lab y qué no es. |
+| [about-unmecaniko.md](about-unmecaniko.md) | Who Nicolas is, in one page. The detail lives in the main repo. |
+| [related-repositories.md](related-repositories.md) | Where the rest of the knowledge and the original dataset live. |
+| [repository-purpose.md](repository-purpose.md) | Goal of this lab and what it is not. |
