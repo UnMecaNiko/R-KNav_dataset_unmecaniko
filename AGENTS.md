@@ -113,6 +113,7 @@ data/                     local, git-ignored
 |---|---|
 | Understand the dataset | [knowledge/dataset/overview.md](knowledge/dataset/overview.md) |
 | Download it or request access | [knowledge/dataset/access.md](knowledge/dataset/access.md) |
+| Recreate the local dataset on another computer | [knowledge/dataset/local-download.md](knowledge/dataset/local-download.md) |
 | See the sample in the visualizer | [knowledge/tools/lerobot-visualizer.md](knowledge/tools/lerobot-visualizer.md) |
 | Know which experiment is next | [knowledge/experiments/roadmap.md](knowledge/experiments/roadmap.md) |
 | ROS 2 / RViz / Nav2 | [knowledge/tools/ros2-rviz.md](knowledge/tools/ros2-rviz.md) — official tutorials, do not rewrite them |

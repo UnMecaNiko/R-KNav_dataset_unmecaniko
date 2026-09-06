@@ -19,6 +19,7 @@ To study a real fleet dataset and **learn tooling** on top of it: maps (OSM/OSRM
 | [AGENTS.md](AGENTS.md) | Rules for agents |
 | [context/](context/) | Who, purpose, related repos |
 | [knowledge/dataset/](knowledge/dataset/) | What R-KNav is |
+| [knowledge/dataset/local-download.md](knowledge/dataset/local-download.md) | Recreate the git-ignored local dataset |
 | [knowledge/experiments/roadmap.md](knowledge/experiments/roadmap.md) | Order of the experiments |
 | [experiments/](experiments/) | Code (empty until the first experiment) |
 | [planning/todo.md](planning/todo.md) | Backlog of this lab |

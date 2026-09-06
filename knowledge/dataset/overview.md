@@ -3,7 +3,7 @@
 Canonical source (check it whenever something clashes with these notes):  
 [huggingface.co/datasets/robotcom/R-KNav_dataset](https://huggingface.co/datasets/robotcom/R-KNav_dataset)  
 Sample: [robotcom/R-KNav_sample](https://huggingface.co/datasets/robotcom/R-KNav_sample)  
-These notes were checked on: 2026-08-23.
+These notes were checked on: 2026-09-06.
 
 ## What it is
 
@@ -17,7 +17,7 @@ Card authors: Yaisa Catalina Ramirez Cepeda, Pedro Alejandro Gonzalez, John A. B
 
 | Resource | Access | Order of magnitude |
 |---|---|---|
-| `robotcom/R-KNav_sample` | Public | ~14 episodes, ~18,054 frames, 10 fps, ~30 min, ~2.3 GB |
+| `robotcom/R-KNav_sample` | Public | ~14 episodes, ~18,054 frames, 10 fps, ~30 min; 1,240,327,132 bytes at revision `da0de1c` |
 | `robotcom/R-KNav_dataset` | Gated (form + approval) | ~300 h, ~1,535 videos, ~732 GiB, DOI [10.57967/hf/9276](https://doi.org/10.57967/hf/9276) |
 | 10,000 h | Email to Autonomy | Not on the Hub |
 

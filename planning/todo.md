@@ -5,7 +5,6 @@
 - [ ] Clone/use this repo as the Cursor workspace during lab sessions
 - [ ] Confirm in the parquet what `observation.state.waypoints` really is (WGS84 or a local frame)
 - [ ] Decide TurtleBot 3 vs 4 for the replay
-- [ ] Request access to the 300 h only once the sample falls short (HF form + non-commercial use)
 
 ## Experiments (detail in knowledge/experiments/)
 
