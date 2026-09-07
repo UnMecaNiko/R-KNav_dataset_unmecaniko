@@ -4,8 +4,8 @@ Agreed order (session 2026-08-23). Each item has a design note. Code, once it ex
 
 | # | Experiment | Layer | Status |
 |---|---|---|---|
-| 0 | Validate `waypoints` (WGS84?) | data | pending |
-| 1 | Episode map ± OSRM | analysis | pending |
+| 0 | Validate `waypoints` (WGS84-compatible lon/lat; no formal CRS tag) | data | validated 2026-09-06 |
+| 1 | Synchronized episode map in LeRobot visualizer | analysis/web | planning approved; implementation pending |
 | 2 | Dead reckoning \(v,\omega\) vs GPS | analysis | pending |
 | 3 | `/cmd_vel` replay on TurtleBot + RViz | ROS 2 | pending |
 | 4 | Nav2 following the route (not the video) | ROS 2 | pending |

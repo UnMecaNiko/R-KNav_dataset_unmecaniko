@@ -3,13 +3,11 @@
 ## Kickoff
 
 - [ ] Clone/use this repo as the Cursor workspace during lab sessions
-- [ ] Confirm in the parquet what `observation.state.waypoints` really is (WGS84 or a local frame)
 - [ ] Decide TurtleBot 3 vs 4 for the replay
 
 ## Experiments (detail in knowledge/experiments/)
 
-- [ ] 0 — validate waypoints
-- [ ] 1 — GPS map ± OSRM
+- [ ] 1 — implement the approved synchronized LeRobot episode map in a separate visualizer fork
 - [ ] 2 — dead reckoning vs GPS
 - [ ] 3 — TurtleBot replay
 - [ ] 4 — Nav2 over the route

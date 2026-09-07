@@ -1,0 +1,65 @@
+# Design specification only. This file is not consumed by code yet.
+version: 1
+
+feature_resolution:
+  precedence:
+    - explicit_configuration
+    - future_lerobot_metadata
+    - recognized_feature_name
+  recognized_features:
+    observation.state.waypoints:
+      coordinate_order: longitude_latitude
+      expected_shape: [2]
+  infer_from_shape_only: false
+
+coordinate_system:
+  expected_crs: WGS84-compatible
+  formal_crs_tag_required_for_claim: true
+  longitude_range: [-180.0, 180.0]
+  latitude_range: [-90.0, 90.0]
+  invalid_value_policy: skip_and_report
+  local_frame_policy: do_not_render_on_geographic_basemap
+
+episode_track:
+  source: current_episode_full_parquet_rows
+  feature: observation.state.waypoints
+  timestamp: timestamp
+  frame_index: frame_index
+  preserve_start_and_end: true
+  stats_json_is_route_source: false
+
+synchronization:
+  clock: existing_time_provider
+  time_lookup: nearest_timestamp
+  map_click_action: shared_seek
+  parent_high_frequency_subscription: false
+  auto_fit: episode_change_only
+  follow_mode_after_manual_pan: false
+
+presentation:
+  placement: episodes_view
+  separate_top_level_tab: false
+  show_full_route: true
+  show_completed_route: true
+  show_start_marker: true
+  show_end_marker: true
+  show_current_marker: true
+  show_coordinate_text: true
+  show_attribution: true
+
+basemap:
+  engine: leaflet
+  load_mode: lazy_client_only
+  tile_url_configurable: true
+  development_tile_url: https://tile.openstreetmap.org/{z}/{x}/{y}.png
+  attribution: "© OpenStreetMap contributors"
+  allow_tile_prefetch: false
+  allow_offline_tile_download: false
+  production_provider: pending_traffic_review
+
+initial_release:
+  include_osrm: false
+  include_map_matching: false
+  include_route_editing: false
+  include_dataset_heatmap: false
+

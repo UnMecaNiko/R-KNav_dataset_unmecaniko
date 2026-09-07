@@ -18,7 +18,7 @@ Source: `meta/info.json` of the sample, read on 2026-08-23. If the Hub changes, 
 | `observation.image.left` | video | 360×640×3 | |
 | `observation.image.right` | video | 360×640×3 | |
 | `observation.image.rear` | video | 360×640×3 | |
-| `observation.state.waypoints` | float32 | [2] | Card says (lon, lat). **The example `[1.48, -0.03]` does not look like WGS84 for a US campus.** Validate in the parquet before touching OSM/OSRM. |
+| `observation.state.waypoints` | float32 | [2] | Card says (lon, lat). Sample Parquet inspection on 2026-09-06 found US-plausible extents: longitude `[-118.417488, -68.669060]`, latitude `[30.209423, 47.921959]`. No formal CRS tag is present. |
 | `observation.state` | float32 | [2] | `twist.twist.linear.x`, `twist.twist.angular.z` — measured odometry |
 | `action` | float32 | [2] | `twist.linear.x`, `twist.angular.z` — command (teleop or Nav2) |
 | `observation.state.road_type` | string | [1] | e.g. sidewalk |
