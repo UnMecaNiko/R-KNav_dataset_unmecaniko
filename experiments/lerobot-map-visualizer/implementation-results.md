@@ -52,6 +52,7 @@ All figures below are measured, and every browser check ran against the **produc
 | Episode sweep, all 14 episodes | **196/196 checks pass** |
 | Robustness — regression, layout, tile failure, network, performance | **40/40 checks pass** |
 | Map controls — pan, zoom, follow, reset, keyboard | **10/10 checks pass** |
+| Cross-view sync and accessibility | **8/8 checks pass** |
 
 The upstream baseline was established first: type-check, lint and 157 tests pass on an untouched checkout. `format:check` initially failed on 75 untouched files, which turned out to be a Windows CRLF artifact of `core.autocrlf=true`, not an upstream defect; normalising the clone to LF made it pass.
 
@@ -71,6 +72,18 @@ For each of the 14 episodes, in a real browser:
 - no uncaught page errors.
 
 The manual validation references in the [implementation plan](implementation-plan.md) are all confirmed: episode 0 begins at `[-92.019272, 30.212450]` and ends at `[-92.020828, 30.210846]`; episode 7 has 3,289 frames; episode 12 has the smallest range; episode 13 is the last.
+
+### Cross-view synchronization and accessibility
+
+Clicking a chart moves the map marker (frame 30 → 1360 on episode 0), closing the last synchronization path in the spec: playback bar, chart, route click, URL `?t=`, and episode change all keep the map in step.
+
+On accessibility: the map region and canvas carry accessible names; both controls have visible labels plus descriptions, and the follow toggle exposes `aria-pressed`; start, end and current markers are a **triangle, a square and a circle** — distinguishable without colour — and each carries a text label with its frame and coordinates; time, frame, longitude and latitude are exposed as labelled text; Leaflet's zoom controls remain keyboard-reachable with names. Under `prefers-reduced-motion: reduce` the map renders correctly with no errors and no animated re-centring.
+
+### Deployment
+
+The production build works and upstream is already packaged as a Hugging Face Space (Docker, port 7860), so publishing needs no new infrastructure. Leaflet is code-split into a single lazy 148 KB chunk that is absent from every shared bundle.
+
+One trap was found and verified in both directions: `NEXT_PUBLIC_*` values are inlined by `next build`, so passing one to `docker run -e` silently does nothing. They must be supplied as build arguments. This is documented in the fork's `EPISODE_MAP.md`.
 
 ### Regression: datasets without geography
 
