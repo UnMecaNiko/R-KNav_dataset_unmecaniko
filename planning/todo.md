@@ -7,7 +7,8 @@
 
 ## Experiments (detail in knowledge/experiments/)
 
-- [ ] 1 — implement the approved synchronized LeRobot episode map in a separate visualizer fork
+- [ ] 1 — publish the episode map: create the public fork, push `feat/episode-route-map`, decide the upstream path
+      (implementation and verification are done — see `experiments/lerobot-map-visualizer/implementation-results.md`)
 - [ ] 2 — dead reckoning vs GPS
 - [ ] 3 — TurtleBot replay
 - [ ] 4 — Nav2 over the route

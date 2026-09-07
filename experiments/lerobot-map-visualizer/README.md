@@ -1,6 +1,9 @@
 # LeRobot map visualizer — planning package
 
-**Status:** product design approved; implementation not started. This directory contains documentation only.
+**Status:** implemented and verified. The map runs against all 14 episodes of the public sample.
+
+Results, measurements, and the defects verification caught: [implementation-results.md](implementation-results.md).
+The code lives in a separate visualizer clone on branch `feat/episode-route-map`, not in this repository.
 
 ## Goal
 
@@ -40,6 +43,7 @@ Responsive layouts may stack the map below the cameras. The map remains visible 
 | [technical-plan.md](technical-plan.md) | Upstream architecture, proposed data flow, synchronization, and map integration |
 | [implementation-plan.md](implementation-plan.md) | Ordered work packages, test strategy, delivery path, and agent handoff |
 | [research-notes.md](research-notes.md) | Verified upstream and R-KNav findings, including `stats.json` limitations |
+| [implementation-results.md](implementation-results.md) | What was built, what was measured, what broke and was fixed |
 | [proposed-map-contract.yaml](proposed-map-contract.yaml) | Proposed feature-discovery and runtime parameters; specification only |
 
 ## Scope boundaries
