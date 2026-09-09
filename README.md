@@ -21,7 +21,9 @@ To study a real fleet dataset and **learn tooling** on top of it: maps (OSM/OSRM
 | [knowledge/dataset/](knowledge/dataset/) | What R-KNav is |
 | [knowledge/dataset/local-download.md](knowledge/dataset/local-download.md) | Recreate the git-ignored local dataset |
 | [knowledge/experiments/roadmap.md](knowledge/experiments/roadmap.md) | Order of the experiments |
-| [experiments/](experiments/) | Code (empty until the first experiment) |
+| [experiments/](experiments/) | Design and results per experiment |
+| [harness/](harness/) | Feature contract, tests, architecture, progress log |
+| [harness/features.md](harness/features.md) | What is built, and what is actually verified |
 | [planning/todo.md](planning/todo.md) | Backlog of this lab |
 
 ## Dataset (external)
@@ -35,7 +37,9 @@ To study a real fleet dataset and **learn tooling** on top of it: maps (OSM/OSRM
 
 ## Status
 
-Kickoff 2026-08-23: context dumped from the exploration session. No code yet. First planned experiments: GPS map, dead reckoning vs GPS, `cmd_vel` replay on a TurtleBot.
+Experiment 1 is running. The LeRobot Dataset Visualizer fork shows a synchronized route map inside the episode view, and a **Map** tab drawing every episode's route on one basemap. Code lives in a fork of `huggingface/lerobot-dataset-visualizer`, not here — see [harness/architecture.md](harness/architecture.md).
+
+Next: verify the Map tab in a browser, then [iteration 2](experiments/lerobot-map-visualizer/dataset-map-iteration-2-plan.md) — heatmap, time-of-day colouring, hover detail, distance statistics.
 
 ## License of *this* repo
 

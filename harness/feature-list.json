@@ -1,0 +1,206 @@
+{
+  "$comment": "Machine-readable feature contract for this lab. Convention from Anthropic's 'Effective harnesses for long-running agents': every feature carries a category, a description, step-by-step verification, and a boolean `passes` that may only be set true by an agent that actually ran the verification. `passes: false` is not a bug report — it means 'not verified by this method yet'. Human-readable companion: features.md",
+  "project": "R-KNav episode and dataset route maps",
+  "code_location": {
+    "repo": "fork of huggingface/lerobot-dataset-visualizer",
+    "branch": "feat/episode-route-map",
+    "note": "Code is not vendored into this lab. See harness/architecture.md."
+  },
+  "verification_methods": {
+    "automated": "bun run validate in the fork (type-check, lint, format check, unit tests)",
+    "data": "Node/bun script reading the local sample parquet under data/raw/",
+    "browser": "Manual or MCP-driven browser session against the production build (bun run build && bun run start)"
+  },
+  "features": [
+    {
+      "id": "episode-map-render",
+      "category": "functional",
+      "description": "The Episodes view shows an interactive basemap with the current episode's full recorded route.",
+      "verification": [
+        "Open /robotcom/R-KNav_sample/episode_0 on the production build.",
+        "Confirm a map appears between the language instruction and the charts.",
+        "Confirm the route polyline and the basemap tiles both render."
+      ],
+      "method": "browser",
+      "passes": true,
+      "verified_on": "2026-09-07"
+    },
+    {
+      "id": "episode-map-clock-sync",
+      "category": "functional",
+      "description": "The episode map's marker tracks the shared playback clock, and clicking the route or a chart seeks it.",
+      "verification": [
+        "Play the episode and confirm the marker advances with the video.",
+        "Click a point on the route; confirm video and charts jump to that frame.",
+        "Click a chart; confirm the map marker moves."
+      ],
+      "method": "browser",
+      "passes": true,
+      "verified_on": "2026-09-07"
+    },
+    {
+      "id": "geo-feature-resolution",
+      "category": "data-integrity",
+      "description": "A feature is treated as geographic only via explicit config, self-describing `names`, or a documented allowlist — never guessed from shape.",
+      "verification": [
+        "Run the geoTrack unit tests.",
+        "Confirm a float32[2] feature with no naming evidence resolves to no-candidate, not to a map."
+      ],
+      "method": "automated",
+      "passes": true,
+      "verified_on": "2026-09-07"
+    },
+    {
+      "id": "local-frame-refusal",
+      "category": "data-integrity",
+      "description": "A coordinate track entirely outside geographic range is treated as a local/metric frame and never drawn on a world basemap.",
+      "verification": [
+        "Run the geoTrack unit tests covering out-of-range fixtures.",
+        "Confirm `looksLocalFrame` suppresses both the episode map and the dataset map."
+      ],
+      "method": "automated",
+      "passes": true,
+      "verified_on": "2026-09-08"
+    },
+    {
+      "id": "non-geo-datasets-untouched",
+      "category": "compliance",
+      "description": "Datasets that declare no geographic feature render exactly as upstream: no map, no Leaflet download, no chart change.",
+      "verification": [
+        "Load youliangtan/so101-table-cleanup and rabhishek100/so100_train_dataset.",
+        "Confirm no map element, zero Leaflet requests, no page errors.",
+        "Confirm the Map tab reports that the dataset declares no geographic feature."
+      ],
+      "method": "browser",
+      "passes": false,
+      "note": "Verified for the episode map on 2026-09-07. The Map tab's behaviour on these datasets has not been re-checked since it was added."
+    },
+    {
+      "id": "map-tab-present",
+      "category": "functional",
+      "description": "A Map tab sits immediately after Episodes and opens a dataset-wide route map.",
+      "verification": [
+        "Open any episode of robotcom/R-KNav_sample.",
+        "Confirm a 'Map' tab is the second tab in the bar.",
+        "Open it and confirm a map fills the tab body."
+      ],
+      "method": "browser",
+      "passes": false,
+      "note": "Built 2026-09-08; awaiting browser verification."
+    },
+    {
+      "id": "map-tab-all-routes",
+      "category": "functional",
+      "description": "The Map tab draws every loaded episode's route on one basemap, framed so all of them are visible, and pans/zooms across the whole extent.",
+      "verification": [
+        "Open the Map tab on robotcom/R-KNav_sample.",
+        "Confirm 14 routes are reported in the readout.",
+        "Confirm the initial view frames the continental United States.",
+        "Pan and zoom to each of the 9 distinct sites and confirm a route is drawn there."
+      ],
+      "method": "browser",
+      "passes": false,
+      "note": "Built 2026-09-08; awaiting browser verification."
+    },
+    {
+      "id": "map-tab-endpoint-symbols",
+      "category": "functional",
+      "description": "Each route on the dataset map carries the same start and end symbols as the episode map — a triangle and a square, distinguishable without colour.",
+      "verification": [
+        "Zoom to one site on the Map tab.",
+        "Confirm a green triangle at each route start and a red square at each end.",
+        "Confirm the symbols match the episode map's."
+      ],
+      "method": "browser",
+      "passes": false,
+      "note": "Shapes are shared code (utils/geoMarkers.ts), so drift is impossible; the rendering itself is unverified."
+    },
+    {
+      "id": "route-geometry-reduction",
+      "category": "performance",
+      "description": "Routes are reduced by radial filtering plus Douglas-Peucker before reaching the browser, preserving corners rather than sampling every Nth frame.",
+      "verification": [
+        "Run the datasetRoutes unit tests.",
+        "Run a data script over the sample parquet and confirm 18,054 frames reduce to roughly 620 drawn vertices with route shape retained."
+      ],
+      "method": "data",
+      "passes": true,
+      "verified_on": "2026-09-08"
+    },
+    {
+      "id": "route-work-bounded",
+      "category": "performance",
+      "description": "One pathological episode cannot freeze the Map tab: Douglas-Peucker's quadratic worst case is bounded by a hard input cap.",
+      "verification": [
+        "Run the datasetRoutes test 'bounds its own work on an adversarial path'.",
+        "Confirm 60,000 corner-only points complete in under 4 seconds."
+      ],
+      "method": "automated",
+      "passes": true,
+      "verified_on": "2026-09-08"
+    },
+    {
+      "id": "map-tab-lazy-cost",
+      "category": "performance",
+      "description": "The Map tab costs nothing until opened: no extra data shard is fetched while the user stays on Episodes.",
+      "verification": [
+        "Open an episode with the network panel recording.",
+        "Confirm no additional parquet request until the Map tab is selected.",
+        "Confirm the Leaflet chunk is not in any shared bundle."
+      ],
+      "method": "browser",
+      "passes": false,
+      "note": "Built 2026-09-08; lazy loading is implemented but the request count has not been measured."
+    },
+    {
+      "id": "column-projection",
+      "category": "performance",
+      "description": "The dataset map reads only `index`, `episode_index` and the coordinate column, and fetches each data shard once regardless of how many episodes it holds.",
+      "verification": [
+        "Inspect loadAllEpisodeRoutes' readParquetAsObjects column list.",
+        "Confirm episodes are grouped by chunk/file before fetching."
+      ],
+      "method": "data",
+      "passes": true,
+      "verified_on": "2026-09-08"
+    },
+    {
+      "id": "tile-policy-compliance",
+      "category": "compliance",
+      "description": "The default basemap is declared a development endpoint in the UI, and no tile prefetching or bulk downloading occurs.",
+      "verification": [
+        "Confirm the readout names the OSM Standard tiles as a development basemap.",
+        "Confirm keepBuffer is 1 and no tile is requested outside the viewport margin."
+      ],
+      "method": "browser",
+      "passes": false,
+      "note": "Wording is in place on both maps; measurement was done for the episode map only."
+    },
+    {
+      "id": "no-dataset-redistribution",
+      "category": "compliance",
+      "description": "No R-KNav artifact is committed to either repository; data is fetched from the Hub at runtime under the viewer's own credentials.",
+      "verification": [
+        "Confirm .gitignore excludes data/ and parquet/mp4 artifacts.",
+        "Confirm git ls-files shows no dataset file.",
+        "Confirm the app carries no server-side Hugging Face token."
+      ],
+      "method": "automated",
+      "passes": true,
+      "verified_on": "2026-09-08"
+    },
+    {
+      "id": "accessible-map-symbols",
+      "category": "accessibility",
+      "description": "Route endpoints are distinguishable by shape, not colour alone, and every map region carries an accessible name.",
+      "verification": [
+        "Confirm start/end/current markers are a triangle, a square and a circle.",
+        "Confirm each map container has role and aria-label.",
+        "Confirm the page renders correctly under prefers-reduced-motion: reduce."
+      ],
+      "method": "browser",
+      "passes": false,
+      "note": "Verified for the episode map on 2026-09-07. The dataset map reuses the same symbols and carries the same roles, but has not been re-checked."
+    }
+  ]
+}

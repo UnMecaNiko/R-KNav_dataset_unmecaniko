@@ -1,6 +1,6 @@
 # LeRobot map visualizer — planning package
 
-**Status:** implemented and verified. The map runs against all 14 episodes of the public sample.
+**Status:** the episode map is implemented and verified. The dataset-wide **Map** tab is built and passes every automated sensor, but has not been verified in a browser.
 
 Results, measurements, and the defects verification caught: [implementation-results.md](implementation-results.md).
 The code lives in a separate visualizer clone on branch `feat/episode-route-map`, not in this repository.
@@ -43,7 +43,9 @@ Responsive layouts may stack the map below the cameras. The map remains visible 
 | [technical-plan.md](technical-plan.md) | Upstream architecture, proposed data flow, synchronization, and map integration |
 | [implementation-plan.md](implementation-plan.md) | Ordered work packages, test strategy, delivery path, and agent handoff |
 | [research-notes.md](research-notes.md) | Verified upstream and R-KNav findings, including `stats.json` limitations |
-| [implementation-results.md](implementation-results.md) | What was built, what was measured, what broke and was fixed |
+| [implementation-results.md](implementation-results.md) | Episode map: what was built, measured, broke and was fixed |
+| [dataset-map-iteration-1.md](dataset-map-iteration-1.md) | Dataset-wide Map tab: what was built and measured |
+| [dataset-map-iteration-2-plan.md](dataset-map-iteration-2-plan.md) | Heatmap, time-of-day colouring, hover detail, distance statistics |
 | [proposed-map-contract.yaml](proposed-map-contract.yaml) | Proposed feature-discovery and runtime parameters; specification only |
 
 ## Scope boundaries

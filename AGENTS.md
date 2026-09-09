@@ -23,6 +23,7 @@ A single working layer (English). It does not feed unmecaniko.com.
 | `context/` | Who Nicolas is (summary), related repos, purpose of this lab. |
 | `knowledge/` | Source of truth for *this* project: dataset, concepts, tools, experiment design. |
 | `experiments/` | Code and notebooks for the experiments. Each one links its design note in `knowledge/experiments/`. |
+| `harness/` | The agent harness: feature contract, tests, architecture invariants, progress log, bootstrap. |
 | `planning/` | Changelog and open items for **this** repository. |
 | `data/` | Local dataset downloads. **Git-ignored.** Do not commit. |
 
@@ -73,6 +74,16 @@ When in doubt about the LeRobot format, Nav2, OSRM or the dataset: find the offi
 
 When finishing a piece of work, update [planning/changelog.md](planning/changelog.md) and [planning/todo.md](planning/todo.md). A resolved item is deleted from the todo list and recorded in the changelog.
 
+### 6b. The harness
+
+[harness/](harness/) is the working loop of this repository, built on the published harness-engineering guidance ([Anthropic](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents), [OpenAI](https://openai.com/index/harness-engineering/), [Fowler](https://martinfowler.com/articles/harness-engineering.html)). Rules that bind every agent:
+
+- **Start by reading [harness/progress.md](harness/progress.md)**, then [harness/feature-list.json](harness/feature-list.json).
+- **Read [harness/architecture.md](harness/architecture.md) before changing code.** Its invariants are not enforced by any linter.
+- **Never set `passes: true` without running that feature's stated verification.** A green `bun test` is not evidence for a feature whose method is `browser`. `passes: false` means "not verified this way yet", and the `note` says why.
+- **Finish by appending to [harness/progress.md](harness/progress.md)** and updating the feature list, the changelog and the todo list.
+- Before committing code, the gate is `bun run validate` in the fork: type-check, lint, format check, tests.
+
 ### 7. Git workflow
 
 - Automatic commits, no authorization needed, on `main` or a branch.
@@ -94,7 +105,9 @@ knowledge/
   concepts/               layers, VLM/VLA, jerky, teleop vs autonomous
   tools/                  visualizer, Rosetta, ROS 2/RViz, OSRM, NVIDIA
   experiments/            design of each experiment (no code yet)
-experiments/              code once it exists
+experiments/              design + results per experiment
+harness/                  feature-list.json, features.md, tests.md,
+                          architecture.md, progress.md, init.sh
 planning/                 changelog.md, todo.md
 data/                     local, git-ignored
 ```
@@ -102,10 +115,13 @@ data/                     local, git-ignored
 ## Minimum reading for a new agent
 
 1. This file.
-2. [context/repository-purpose.md](context/repository-purpose.md)
-3. [knowledge/dataset/overview.md](knowledge/dataset/overview.md)
-4. [knowledge/experiments/roadmap.md](knowledge/experiments/roadmap.md)
-5. If identity or career context is needed: [unmecaniko-projects](https://github.com/UnMecaNiko/unmecaniko-projects)
+2. [harness/progress.md](harness/progress.md) — where the work actually stands.
+3. [harness/feature-list.json](harness/feature-list.json) — what is built and what is verified.
+4. [context/repository-purpose.md](context/repository-purpose.md)
+5. [knowledge/dataset/overview.md](knowledge/dataset/overview.md)
+6. [knowledge/experiments/roadmap.md](knowledge/experiments/roadmap.md)
+7. Before touching code: [harness/architecture.md](harness/architecture.md)
+8. If identity or career context is needed: [unmecaniko-projects](https://github.com/UnMecaNiko/unmecaniko-projects)
 
 ## Common flows
 
@@ -119,3 +135,6 @@ data/                     local, git-ignored
 | ROS 2 / RViz / Nav2 | [knowledge/tools/ros2-rviz.md](knowledge/tools/ros2-rviz.md) — official tutorials, do not rewrite them |
 | Know who Nicolas is | [context/about-unmecaniko.md](context/about-unmecaniko.md) and the main repo |
 | See what changed here | [planning/changelog.md](planning/changelog.md) |
+| Know what is built and verified | [harness/features.md](harness/features.md) |
+| Run the tests | [harness/tests.md](harness/tests.md) |
+| Set up a machine from scratch | `./harness/init.sh setup` |

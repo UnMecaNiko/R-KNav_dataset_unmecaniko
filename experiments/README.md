@@ -6,6 +6,6 @@ The working order is in [knowledge/experiments/roadmap.md](../knowledge/experime
 
 | Experiment folder | Status | Purpose |
 |---|---|---|
-| [lerobot-map-visualizer/](lerobot-map-visualizer/) | Planning approved; no code | Integrate a synchronized geographic route into the visualizer's episode view |
+| [lerobot-map-visualizer/](lerobot-map-visualizer/) | Episode map verified; dataset Map tab built, browser-unverified | A synchronized route in the episode view, plus a dataset-wide Map tab |
 
 Do not store dataset copies here. Download to `data/` (git-ignored) or read from the Hub.
